@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gesture to Text</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #350358, #9d039d, #bc5bec); /* Purple gradient */
+    background-size: 200% 200%; /* Creates a smooth gradient effect */
+    animation: gradientAnimation 8s ease infinite; 
+    color:black;
+    font-family:'Times New Roman', Times, serif;
+
+    }
+    video {
+      width: 80%;
+      max-width: 640px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+
+    }
+    h1 {
+      font-size: 70px;
+    }
+    .output {
+      font-size: 24px;
+    
+      margin-top: 20px;
+    }
+    .error {
+      font-size: 18px;
+      
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gesture to Text</h1>
+  <video id="webcam" autoplay></video>
+  <div class="output" id="output-text">Text will appear here...</div>
+  <div class="error" id="error-message"></div>
+
+  <script>
+    // Access the webcam
+    const video = document.getElementById("webcam");
+
+    // Start the video stream
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((stream) => {
+        video.srcObject = stream;
+      })
+      .catch((error) => {
+        console.error("Error accessing webcam: ", error);
+        alert("Unable to access the webcam. Please check your permissions.");
+      });
+
+    // Create a canvas to capture frames
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+
+    // Frame rate control
+    const frameInterval = 300; // 300ms interval between frames (adjust as needed)
+    let isProcessing = false;
+
+    // Function to send the captured frame to the backend
+    async function sendFrameToBackend() {
+      if (video.videoWidth === 0 || video.videoHeight === 0) {
+        // Wait for video dimensions to be available
+        return setTimeout(sendFrameToBackend, 100);
+      }
+
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      const frame = canvas.toDataURL("image/jpeg");
+
+      if (isProcessing) {
+        // If the backend is still processing the previous frame, skip this one
+        return;
+      }
+
+      isProcessing = true;
+
+      // Send frame to backend for prediction
+      try {
+        // Adjust this URL if you're not running on localhost
+        const response = await fetch("http://127.0.0.1:5000/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ "frame":frame }),
+        });
+
+        const data = await response.json();
+        
+        if (data.text) {
+          document.getElementById("output-text").innerText = data.text;
+          document.getElementById("error-message").innerText = "";
+        } else {
+          document.getElementById("output-text").innerText = "No gesture detected.";
+          document.getElementById("error-message").innerText = "";
+        }
+      } catch (error) {
+        console.error("Error sending frame to backend: ", error);
+        document.getElementById("output-text").innerText = error;
+        document.getElementById("error-message").innerText = "Network or server error. Please try again.";
+      } finally {
+        isProcessing = false;
+      }
+
+      // Repeat every frameInterval
+      setTimeout(sendFrameToBackend, frameInterval);
+    }
+
+    // Start capturing frames when the video starts playing
+    video.addEventListener("play", () => {
+      sendFrameToBackend();
+    });
+  </script>
+</body>
+</html>
