@@ -1,0 +1,67 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f4f6;
+}
+
+/* Container */
+.container {
+    text-align: center;
+}
+
+/* Heading Style */
+.heading {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+/* Options Container */
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Option Button Style */
+.option-button {
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.option-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.option-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Option Image Style */
+.option-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraph Style */
+p {
+    font-size: 1rem;
+    color: #34495e;
+    margin: 0;
+}

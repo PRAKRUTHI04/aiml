@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sinuous-topic-443609-v8",
+  "private_key_id": "f7be5e97ebd297fc7c9bdb0e10dfae07aefd558e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDmJr+DZ4+Aykhw\nyMA2VE26XkyjR0fFIex71+/JJYxhPBKGuMK/8SBn0rt9ybdJqYoKjtV8wH3wzMv/\nvuSkGPwziVMLgmXW06k6p3kVdBmnvSkh1160OquFYCklqhCwAVczUb4Ny6hJMZI6\noauj97K1uGz1aYRFQnFMLyl/8XmfrRzsealzQOCBoKkQyAmGxbznIcN6+y0+mQRn\n54Kyw4FDmNaSzyhUALcq5eNnoNSxm1MGr0hJHYMVvNT0LsBYSGZ3FBmA/QDe5Dkx\nHPWW9mocDF+28j6oD4mwaVfRsyTRG12oJfmSCX5W1S52h/30W/7A/W71oL/mQH1s\npUsmZC+JAgMBAAECggEACWGXGP3klw9nwqdtUk4s+TNrz91s35DYW1w8Af+ZLOgJ\n4GzxaGlcYm8CV5qcXxDvt3N0l0hD8MfgRbVcC4G9f7Ej7e7QRE478lAJsdPQv5xk\nEHdIj08hMowTY5RsZ9p+IszhZR2PsJJe6uJ5JRftIh+LtpRNjrlzY4XOnQdCQvRh\ndjQ2FiY0mwKNZ0Dzk6g6L914/rusN4ZIA36lFBCWUW0etXruSYabbCE9j0/oOkVN\nweBFWpTn2DbS6Do/ZQZNhckoqcVQva8Zka6wwj3XweZm0idH0trnvb/fuCuNqYtu\nDqBThUQre4CVuL4cqsNCiub250SoUTREZbroa3L9YwKBgQD7ukNKKCkhVqjDVrJA\nOU6DMbOuD5yrOXp47cufSOkjGTrJ36V4sTRFZBNv3JsblIVQ2Y458UkRohEDJ0nb\n/adAHjCvC1X5lKkBWfdbSkn/UMNIAXi5UvsmnhQ1hnhWNn7koIQTAeqeyeC7j0sC\nuHFb15hx7zdaf/Gl5+Di2ggWwwKBgQDqDrz5UI328s9HralVx/UDJPZnUmcW79TK\nwsnrBpOIQTcmTfxVCc6XiDU/wvv3C3TyiByM6pPjIXPCnO3os7MX1z7IR0kpE9P4\nP+8plLOeSXy0PMdp19VZGp/n72WlZNWH2BV1k1/SuFbr67JV7FJkfwcbG4XkEx5C\nYLZRzGYzwwKBgEYtzJq9DZJ01YH4BqPvFhtvXNeXFKeL08ApE46pxg15+DDVwA0g\n4iDCYMTb7QZIZs5+iK9QvH1FAJcveeDyG5G9mPcEIwj80A1HZrW1xWF/w6Gsf1qz\nbr96bMnrXlsywDe/JHMkIqP4RkYkEdaFU102gxKojXcWmmkVd1XnUT//AoGBAOiR\nfHS+9lFLM2ulw3zZEzvsnmpMFuNTq71NkBVYk3/wTTxigTh+Zilrzn1s4bC4UZws\nYzIiZJBrzPqztDJlXK9z0Y5wRuHqMdWasao/d7rwilkNi5hAPl4rdnigCAAwEXzJ\n2Yjax3w6byQ9Lxbxm20AS69Dyea2mHqcXo0o7OTBAoGBAKBSi1JhEzQx64cuBg4X\no4KUo4oSnHZezILAVUi521ljw5zPuSkBFUlvOhMa9nsmMznRZGv8n3TE1myF1OZI\nIA2tCb+/GhorlX6iNGZ2itOv+ezaJ1ZYDIKsxUORsbpeBsPZT6BAuL+kr1/ICaKR\n4+YczfB5xh74s8bcAwhZj084\n-----END PRIVATE KEY-----\n",
+  "client_email": "speech-to-text@sinuous-topic-443609-v8.iam.gserviceaccount.com",
+  "client_id": "100562732110549508276",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-to-text%40sinuous-topic-443609-v8.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

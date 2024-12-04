@@ -1,0 +1,91 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #350358, #720372, #9932cc); /* Purple gradient */
+    background-size: 200% 200%; /* Creates a smooth gradient effect */
+    animation: gradientAnimation 8s ease infinite; /* Purple background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Heading style */
+h1 {
+    font-size: 2.5em;
+    color: black; /* Black text color */
+    margin-top: 30px;
+    text-align: center;
+    font-size: 100px;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+/* Container for the buttons */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 5px;
+}
+
+/* Individual button container */
+.button-container {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.button-container:hover {
+    transform: scale(1.05);
+}
+
+/* Image styles */
+.button-container img {
+    width: 220px;
+    height: 220px;
+    border-radius: 15px;
+    border: 3px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.button-container img:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Text below images */
+.button-container p {
+    margin-top: 5px;
+    font-size: 30px;
+    color: black; /* Black text color */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .button-container img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .button-container p {
+        font-size: 1em;
+        color:black;
+        font-size: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    }
+}
+
+   

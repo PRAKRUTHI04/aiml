@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Specifies character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <meta name="description" content="Speech to Text application"> <!-- Optional meta for better SEO -->
+    <title>Speech to Text</title>
+    <style>
+        body {
+            background-color: purple;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Speech to Text</h1>
+    <button id="record-btn">Start Recording</button>
+    <p>Press the button to start recording.</p>
+    <p id="transcription">Transcription will appear here...</p>
+
+    <script>
+        let mediaRecorder;
+        let audioChunks = [];
+
+        document.getElementById("record-btn").addEventListener("click", async () => {
+            if (!mediaRecorder || mediaRecorder.state === "inactive") {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+
+                mediaRecorder.ondataavailable = (event) => {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+                    audioChunks = []; // Clear chunks after recording
+
+                    const formData = new FormData();
+                    formData.append("audio", audioBlob);
+
+                    // Send audio to the backend
+                    fetch("http://localhost:5000/speech-to-text", {
+                        method: "POST",
+                        body: formData,
+                    })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            if (data.transcription) {
+                                document.getElementById("transcription").innerText = data.transcription;
+                            } else {
+                                document.getElementById("transcription").innerText = "No transcription available.";
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Error:", error);
+                            document.getElementById("transcription").innerText = "Error occurred.";
+                        });
+                };
+
+                mediaRecorder.start();
+                document.getElementById("record-btn").innerText = "Stop Recording";
+            } else {
+                mediaRecorder.stop();
+                document.getElementById("record-btn").innerText = "Start Recording";
+            }
+        });
+    </script>
+</body>
+</html>
